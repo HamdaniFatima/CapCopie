@@ -1,0 +1,284 @@
+
+{% load crispy_forms_tags %}
+{% load humanize %}
+{% load static %}
+<!DOCTYPE HTML>
+<!--
+	Transitive by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+		<title>CapMat</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="{% static 'template/assets/css/main.css' %}" />
+		<link rel="stylesheet" href="{% static 'template/assets/css/main.css' %}" />
+		<link rel="stylesheet" href="{%  static  'css/style.css' %}">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+	  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+	  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+	  <link rel="stylesheet" href="{%  static 'collaboration/assets/css/main.css' %}"  />
+
+	</head>
+	<body class="subpage">
+
+		<!-- Header -->
+			<header id="header">
+				<div class="logo"><a href="index.html">CapMat <span>Application</span></a></div>
+				<a href="#menu" class="toggle"><span>Menu</span></a>
+			</header>
+
+		<!-- Nav -->
+			<nav id="menu">
+				<ul class="links">
+          <li><a href="{% url 'students:first_page' %}">Accueil </a></li>
+					<li><a href="{% url 'students:lanceur_projet_home' %}">Nouveau Projet</a></li>
+					<li><a href="{% url 'students:mes_projets' %}">Mes Projets</a></li>
+					<li><a href="{% url 'students:collaborations' %}">Mes Collaborations</a></li>
+					<li><a href="{% url 'students:capteur_home' %}">Mes Capteurs</a></li>
+					<li><a href="{% url 'students:profile'%}">Profile</a></li>
+					<li><a href="{% url 'logout' %}">Se déconnecter</a></li>
+				</ul>
+			</nav>
+
+		<!-- One -->
+
+
+		
+
+
+
+
+
+			<section id="theree" class="wrapper style1">
+				<div class="inner">
+				
+					<div class="flex flex-1">
+                        <div class="col-md-8 blog-content">
+         
+
+                            <a href="{% url 'students:projet_add' %}" class="btn btn-primary a-btn-slide-text">
+                                 <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                                 <span><strong></strong></span>            
+                             </a>
+                             <a href="{% url 'students:projet_change' post.pk %}" class="btn btn-primary a-btn-slide-text">
+                               <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                               <span><strong></strong></span>            
+                           </a>
+                           <a href="{% url 'students:projet_delete' post.pk  %}" class="btn btn-primary a-btn-slide-text">
+                             <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                              <span><strong></strong></span>            
+                          </a>
+                   
+                          <a href="{% url 'students:lanceur_projet_home'  %}" class="btn btn-primary a-btn-slide-text">
+                           <span  aria-hidden="true"></span>
+                            <span><strong>Annuler</strong></span>            
+                        </a>
+                               {% if request.user == post.user %} 
+                     
+                               <a href="{% url 'edit_projet' post.pk %}" class="btn btn-primary a-btn-slide-text">
+                                 <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                                 <span><strong>Edit</strong></span>            
+                             </a>
+                         
+                             <a href="#" class="btn btn-primary a-btn-slide-text">
+                                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                                 <span><strong>Delete</strong></span>            
+                             </a>
+                            
+                               {% else %}
+                       
+                               {% endif  %}
+                   
+                               <h1> {{ post.titre_projet }}</h1>
+                               <p class=" text-muted">{{ post.user.username }} | {{post.created_at | naturaltime}}</p>
+                               <div class="col-md-8 card mb-4  mt-3 left  top">
+                                 <div class="card-body">
+                                 
+                   
+                   
+                   
+                   
+                                    <label for="textarea-input" class=" form-control-label">Déscription du projet</label>
+                                     <p name="textarea-input" id="textarea-input" rows="9" placeholder="Content..." class="form-control">{{ post.description_projet | safe }}</textarea></p>
+                                 
+                                 
+                                       <label for="textarea-input" class=" form-control-label">Type du capteur </label>
+                                       <p name="textarea-input" id="textarea-input" rows="9" placeholder="Content..." class="form-control">{{ post.type_capteur | safe }}</textarea></p>
+                                   
+                                         <label for="textarea-input" class=" form-control-label">Type d’événement à détecter </label>
+                                         <p name="textarea-input" id="textarea-input" rows="9" placeholder="Content..." class="form-control">{{ post.type_evt | safe }}</textarea></p>
+                                     
+                                           <label for="textarea-input" class=" form-control-label">Nature d’événement à détecter</label>
+                                           <p name="textarea-input" id="textarea-input" rows="9" placeholder="Content..." class="form-control">{{ post.nature_evt | safe }}</textarea></p>
+                                       
+                                             <label for="textarea-input" class=" form-control-label">Grandeur de l’événement à détecter</label>
+                                             <p name="textarea-input" id="textarea-input" rows="9" placeholder="Content..." class="form-control">{{ post.grandeur_evt | safe }}</textarea></p>
+                                             <label for="textarea-input" class=" form-control-label">L'environnement de l'événement à détecter</label>
+                                             <p name="textarea-input" id="textarea-input" rows="9" placeholder="Content..." class="form-control">{{ post.envirennoment_evt | safe }}</textarea></p>
+                                             <label for="textarea-input" class=" form-control-label">Etendue de mesure</label>
+                                             <p name="textarea-input" id="textarea-input" rows="9" placeholder="Content..." class="form-control">{{ post.etendue | safe }}</textarea></p>
+                                             <label for="textarea-input" class=" form-control-label">Sensibilité</label>
+                                             <p name="textarea-input" id="textarea-input" rows="9" placeholder="Content..." class="form-control">{{ post.sensibilite | safe }}</textarea></p>
+                                                     
+                                             <label for="textarea-input" class=" form-control-label">Résolution</label>
+                                             <p name="textarea-input" id="textarea-input" rows="9" placeholder="Content..." class="form-control">{{ post.resolution | safe }}</textarea></p>
+                                               
+                                             <label for="textarea-input" class=" form-control-label">Précision </label>
+                                             <p name="textarea-input" id="textarea-input" rows="9" placeholder="Content..." class="form-control">{{ post.precision | safe }}</textarea></p>
+                                                     
+                   
+                   
+                                             <label for="textarea-input" class=" form-control-label">Rapidité </label>
+                                             <p name="textarea-input" id="textarea-input" rows="9" placeholder="Content..." class="form-control">{{ post.rapidite | safe }}</textarea></p>
+                                                     
+                   
+                   
+                                             <label for="textarea-input" class=" form-control-label">Dimensions </label>
+                                             <p name="textarea-input" id="textarea-input" rows="9" placeholder="Content..." class="form-control">{{ post.dimensions | safe }}</textarea></p>
+                                                     
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                                 
+                            
+                                 
+                                  
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                                 </div>
+                               </div>
+                               
+                           
+                               <div class="col-md-8 card mb-4  mt-3 ">
+                                 <div class="card-body">
+                                   <!-- comments -->
+                                   <p> Nombre des commentaires pour ce projet est de <strong>{{ comments.count }}</strong>  </p>
+                           
+                                   {% for comment in comments %}
+                                   <div class="comments" style="padding: 10px;">
+                                     <p class="font-weight-bold">
+                                       {{ comment.name }}
+                                       <span class=" text-muted font-weight-normal">
+                                         {{ comment.created_on }}
+                                       </span>
+                                     </p>
+                                     {{ comment.body | linebreaks }}
+                                   </div>
+                                   {% endfor %}
+                                 </div>
+                               </div>
+                          
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                         
+                         
+                         
+                         
+                         
+                         
+                      
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                        
+                       
+                       
+                     
+                             </div>
+               
+                                    
+				
+					</div>
+				</div>
+			</section>
+
+
+
+
+			<footer id="footer">
+				<div class="copyright">
+					<ul class="icons">
+						<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+						<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+						<li><a href="#" class="icon fa-snapchat"><span class="label">Snapchat</span></a></li>
+					</ul>
+					<p>&copy; Untitled. All rights reserved. Design: <a href="https://templated.co">TEMPLATED</a>. Images: <a href="https://unsplash.com">Unsplash</a>.</p>
+				</div>
+			</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		</div> 
+		<!-- Scripts -->
+		<script src="{%  static 'collaboration/assets/js/jquery.min.js' %}"></script>
+		<script src="{%  static 'collaboration/assets/js/jquery.scrolly.min.js' %}"></script>
+		<script src="{%  static 'collaboration/assets/js/jquery.scrollex.min.js' %}"></script>
+		<script src="{%  static 'collaboration/assets/js/skel.min.js' %}"></script>
+		<script src="{%  static 'collaboration/assets/js/util.js' %}"></script>
+		<script src="{%  static 'collaboration/assets/js/main.js' %}"></script>
+
+	</body>
+</html>

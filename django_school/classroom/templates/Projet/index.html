@@ -1,0 +1,163 @@
+{% load static %}
+<!DOCTYPE HTML>
+<!--
+	Transitive by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+		<title>CapMat</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="{% static 'template/assets/css/main.css' %}" />
+
+	</head>
+	<body>
+
+		<!-- Header -->
+			<header id="header" class="alt">
+				<div class="logo"><a href="index.html">CapMat <span>Application</span></a></div>
+				<a href="#menu" class="toggle"><span>Menu</span></a>
+			</header>
+
+		<!-- Nav -->
+			<nav id="menu">
+				<ul class="links">
+					<li><a href="{% url 'students:first_page' %}">Accueil </a></li>
+					<li><a href="{% url 'students:lanceur_projet_home' %}">Nouveau Projet</a></li>
+					<li><a href="{% url 'students:mes_projets' %}">Mes Projets</a></li>
+					<li><a href="{% url 'students:collaborations' %}">Mes Collaborations</a></li>
+					<li><a href="{% url 'students:capteur_home' %}">Mes Capteurs</a></li>
+					<li><a href="{% url 'students:profile'%}">Profile</a></li>
+					<li><a href="{% url 'logout' %}">Se déconnecter</a></li>
+				</ul>
+			</nav>
+
+		<!-- Banner -->
+		<!--
+			To use a video as your background, set data-video to the name of your video without
+			its extension (eg. [% static 'template/images/banner). Your video must be available in both .mp4 and .webm
+			formats to work correctly.
+		-->
+	
+		<!-- One -->
+			
+		<!-- Two -->
+			<section id="two" class="wrapper style3">
+				<div class="inner">
+					<div id="flexgrid">
+						<div>
+							<header>
+								<h3>Créer Un projet</h3>
+							</header>
+							<p>Dans cette section, vous pouvez compléter les caractéristiques et les precisions techniques du projet.</p>
+							<ul class="actions">
+								<li><a href="{% url 'students:lanceur_projet_home' %}" class="button alt">Commencer</a></li>
+							</ul>
+						</div>
+						<div>
+							<header>
+								<h3>Mes Projets</h3>
+							</header>
+							<p>Dans la section, vous accédez à l'ensmble de vos projets créer,  ainsi qu’à la liste d’experts correspondant.</p>
+							<ul class="actions">
+								<li><a href="{% url 'students:mes_projets' %}" class="button alt">Consulter</a></li>
+							</ul>
+						</div>
+						<div>
+							<header>
+								<h3>Mes collaborations</h3>
+							</header>
+							<p>Suspendisse mauris. Fusce accumsan mollis eros. Pellentesque a diam sit amet mi ullamcorper vehicula.</p>
+							<ul class="actions">
+								<li><a href="{% url 'students:collaborations' %}" class="button alt">Consulter</a></li>
+							</ul>
+						</div>
+						
+					</div>
+				</div>
+			</section>
+
+		<!-- Three -->
+			<section id="three" class="wrapper style2">
+				<div class="inner">
+					<div class="grid-style">
+
+						<div>
+							<div class="box">
+								<div class="image fit">
+									<img src="{% static 'template/images/pic02.jpg' %}" alt="" />
+								</div>
+								<div class="content">
+									<header class="align-center">
+										<h2>Je recherche...</h2>
+										<p>Un expert</p>
+									</header>
+									<hr />
+									<p> Dans l’onglet « Recherche d'un expert », une liste d’experts est proposée en adéquation avec le besoin référencé.</p>
+								
+								
+									<a      href="{% url 'students:capteurs_list' %}" class="button alt">Rechercher</a>
+								</div>
+							</div>
+						</div>
+
+						<div>
+							<div class="box">
+								<div class="image fit">
+									<img src="{% static 'template/images/pic03.jpg' %}" alt="" />
+								</div>
+								<div class="content">
+									<header class="align-center">
+										<h2>Je recherche...</h2>
+										<p>Une Technologie</p>
+									</header>
+									<hr />
+									<p> Dans l’onglet « Recherche d'une technologie », une liste des capteurs est proposée en adéquation avec le besoin référencé.</p>
+								
+									<a href="{% url 'students:capteurs_list' %}" class="button alt">Rechercher</a>
+								
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</section>
+
+		<!-- Four -->
+			<section id="four" class="wrapper style3">
+				<div class="inner">
+
+					<header class="align-center">
+						<h2>CAPteurs intelligents pour la transformation des MATériaux </h2>
+						<p>Le projet CAP-MAT se positionne dans la thématique « usine du futur » : il s’agit de développer des capteurs intelligents pour la transformation des matériaux et ce, en intégrant la chaine allant des ressources au produits finis.</p>
+					</header>
+
+				</div>
+			</section>
+
+		<!-- Footer -->
+		<footer id="footer" class="wrapper">
+			<div class="inner">
+				<section>
+		
+				</section>
+				<div class="copyright">
+					&copy; copyright: 2020 <a href="https://templated.co/">ERPI (Research team on innovation process)</a>
+				</div>
+			</div>
+		</footer>
+
+
+		<!-- Scripts -->
+			<script src="{% static 'template/assets/js/jquery.min.js' %}"></script>
+			<script src="{% static 'template/assets/js/jquery.scrolly.min.js' %}"></script>
+			<script src="{% static 'template/assets/js/jquery.scrollex.min.js' %}"></script>
+			<script src="{% static 'template/assets/js/skel.min.js' %}"></script>
+			<script src="{% static 'template/assets/js/util.js' %}"></script>
+			<script src="{% static 'template/assets/js/main.js' %}"></script>
+
+	</body>
+</html>

@@ -1,0 +1,38 @@
+
+
+
+
+
+
+
+
+{% extends 'base.html' %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% block content %}
+<div class="jumbotron">
+  <h1>Information de l'Expert </h1> 
+    <ul>
+        {% for forum in object_list %}
+        <li>Nom  : <a>{{forum.nom}}</a> </li><br>
+        <li>Prénom  : <a>{{forum.prenom}}</a> </li><br>
+        <li>Adresse email  : <a>{{forum.adresse_email}}</a> </li><br>
+        <li> les domaines de l'expert : <a>{% for d in forum.domaine.all %} {{ d.name}}, {% endfor %}	</a> </li><br>
+        <li>Composante  : <a>{{forum.composante }}</a> </li><br>
+        <li>Fonction  : <a>{{forum.fonction}}</a> </li><br>
+        <li>Nom  : <a>{{forum.nom}}</a> </li><br>
+        <a href="#" class="button">Contacter</a>
+        {% endfor %}
+</div>
+{% endblock%}
